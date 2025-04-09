@@ -1,8 +1,92 @@
-hola si estas leyendo esto significa que te intereso mi inicio
-Bienvenido hoy es creo que 8 de abril no se estoy perdido en la semana 
-pero tambien esto perdido en el pensamioento de que si hare una empresa grande llamada 8D2 jaja
-bueno 
-un chistesito 
-sabias cual es el animal mas viejo del mundo? la medusa Cyanea capillata ya que ella tiene el poder de revertir su proceso de envejecimiento para hacerla joven y vivir eternamente
-es jodiendo, es la zebra pq esta en blanco y negro 
-gracias gabo por el chiste 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>8D2-SEC | Portafolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    img.logo {
+      height: 60px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #58a6ff;
+    }
+    section {
+      max-width: 800px;
+      width: 100%;
+      background-color: #161b22;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: #58a6ff;
+    }
+    a {
+      color: #3fb950;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/logo.png" alt="Logo 8D2" class="logo">
+    <h1>8D2 Security</h1>
+  </header>
+
+  <section>
+    <h2>¿Quién soy? </h2>
+    <p>Soy Dylan, analista de seguridad y fundador de <strong>8D2</strong>, una iniciativa independiente enfocada en la identificación de vulnerabilidades críticas, el análisis ofensivo y la protección de infraestructuras digitales.</p>
+  </section>
+
+  <section>
+    <h2>¿Qué hago?</h2>
+    <p>Me especializo en:</p>
+    <ul>
+      <li>Análisis de seguridad black-box</li>
+      <li>Pruebas de penetración en aplicaciones web y móviles</li>
+      <li>Reportes profesionales con recomendaciones técnicas</li>
+      <li>Acompañamiento en mitigación de hallazgos</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Estudio de caso destacado</h2>
+    <p>En abril de 2025, se realizó un análisis de una plataforma web que reveló vulnerabilidades críticas como:</p>
+    <ul>
+      <li>Ejecución remota de código mediante <code>eval()</code></li>
+      <li>phpinfo() expuesto al público</li>
+      <li>Documentos personales indexados en Google</li>
+    </ul>
+    <p>Se generó un informe técnico detallado con PoCs, impacto legal, y recomendaciones basadas en OWASP.</p>
+    <p><a href="casos/informe_web_anonimizado.pdf" target="_blank">Ver informe completo (PDF)</a></p> 
+  </section>
+
+  <footer>
+    <p>© 2025 8D2-SEC | Contacto: <a href="mailto:8d2secops@gmail.com">8d2secops@gmail.com</a></p>
+  </footer>
+</body>
+</html>
