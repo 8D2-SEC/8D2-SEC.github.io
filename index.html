@@ -3,98 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>8D2-SEC | Portafolio</title>
+  <title>Portafolio de Dylan</title>
   <style>
+    :root {
+      --bg-light: #f8f9fa;
+      --bg-dark: #121212;
+      --text-light: #212529;
+      --text-dark: #f1f1f1;
+      --accent: #888;
+      --primary: #4a4a4a;
+      --card-bg-light: #ffffff;
+      --card-bg-dark: #1e1e1e;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark {
+      background-color: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
+    header {
+      padding: 3rem 1rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    header img.logo {
+      max-width: 120px;
+      margin-bottom: 1rem;
+      transition: filter 0.3s ease; 
+    }
+
+    body.dark header img.logo {
+      filter: invert(1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
       padding: 2rem;
     }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
+
+    h1, h2 {
+      margin-bottom: 0.5rem;
     }
-    img.logo {
-      height: 60px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
     }
-    h1 {
-      font-size: 2rem;
-      color: #58a6ff;
+
+    ul li::before {
+      content: "✔️ ";
+      color: #5c5c5c;
     }
-    section {
-      max-width: 800px;
-      width: 100%;
-      background-color: #161b22;
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background-color: var(--card-bg-light);
       padding: 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: background-color 0.3s;
     }
-    h2 {
-      border-bottom: 1px solid #30363d;
-      padding-bottom: 0.5rem;
+
+    body.dark .card {
+      background-color: var(--card-bg-dark);
+    }
+
+    .case {
+      min-width: 80%;
+      flex-shrink: 0;
+      scroll-snap-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .slider {
+      display: flex;
+      gap: 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 0;
+    }
+
+    .slider iframe {
+      width: 100%;
+      height: 600px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      color: inherit;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
       margin-bottom: 1rem;
-      color: #58a6ff;
+      border-left: 4px solid var(--accent);
+      padding-left: 0.5rem;
     }
-    a {
-      color: #3fb950;
-      text-decoration: none;
+
+    .contact {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.1rem;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .hero {
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
     }
   </style>
 </head>
 <body>
+  <button class="toggle-mode" onclick="toggleMode()">Modo oscuro</button>
+
   <header>
     <img src="img/logo.png" alt="Logo 8D2" class="logo">
-    <h1>8D2 Security</h1>
+    <h1>Dylan 8D2</h1>
+    <p class="tagline">Especialista en seguridad ofensiva y análisis de aplicaciones web</p>
   </header>
 
-  <section>
-    <h2>¿Quién soy? </h2>
-    <p>Soy Dylan, analista de seguridad y fundador de <strong>8D2</strong>, una iniciativa independiente enfocada en la identificación de vulnerabilidades críticas, el análisis ofensivo y la protección de infraestructuras digitales.</p>
-  </section>
+  <div class="hero">
+    <p>Joven colombiano que desde temprana edad se obsesionó con romper sistemas y proteger los que valen la pena.</p>
+    <p>Ahora ayuda a empresas a no salir en los titulares... por razones equivocadas.</p>
+  </div>
 
-  <section>
-    <h2>¿Qué hago?</h2>
-    <p>Me especializo en:</p>
-    <ul>
-      <li>Análisis de seguridad black-box</li>
-      <li>Pruebas de penetración en aplicaciones web y móviles</li>
-      <li>Reportes profesionales con recomendaciones técnicas</li>
-      <li>Acompañamiento en mitigación de hallazgos</li>
-    </ul>
-  </section>
+  <div class="container">
+    <div class="section">
+      <div class="section-title">¿Qué hago?</div>
+      <div class="card">
+        <ul>
+          <li>Análisis de seguridad black-box</li>
+          <li>Pruebas de penetración en aplicaciones web</li>
+          <li>Reportes profesionales con recomendaciones técnicas</li>
+          <li>Acompañamiento en mitigación de hallazgos</li>
+        </ul>
+      </div>
+    </div>
 
-<section>
-  <h2>Estudio de caso destacado</h2>
-  <p>En abril de 2025, se realizó un análisis de una plataforma web que reveló vulnerabilidades críticas como:</p>
-  <ul>
-    <li>Ejecución remota de código mediante <code>eval()</code></li>
-    <li>phpinfo() expuesto al público</li>
-    <li>Documentos personales indexados en Google</li>
-  </ul>
-  <p>Se generó un informe técnico detallado con PoCs, impacto legal, y recomendaciones basadas en OWASP.</p>
-  
-  <iframe 
-    src="casos/informe-plano.pdf" 
-    width="100%" 
-    height="600px" 
-    style="border: 1px solid #ccc; border-radius: 8px;">
-  </iframe>
+    <div class="section">
+      <div class="section-title">Habilidades y Herramientas</div>
+      <div class="card">
+        <ul>
+          <li><strong>Burp Suite</strong> - Manejo avanzado de pruebas de penetración en aplicaciones web.</li>
+          <li><strong>OWASP</strong> - Conocimiento profundo de las principales vulnerabilidades y medidas de mitigación.</li>
+          <li><strong>Nmap</strong> - Escaneo de redes y servicios para evaluar la seguridad de sistemas.</li>
+          <li><strong>Python</strong> - Automatización de tareas, scripting de explotación y desarrollo de herramientas.</li>
+          <li><strong>Shell Script</strong> - Creación de scripts para la administración de sistemas y explotación.</li>
+          <li><strong>JavaScript</strong> - Manipulación de sitios web para pruebas de seguridad (XSS, CSRF, etc.).</li>
+          <li><strong>C</strong> - Desarrollo de herramientas a nivel bajo y explotación de vulnerabilidades en C.</li>
+        </ul>
+      </div>
+    </div>
 
-  <p>🔗 <a href="casos/informe-plano.pdf" target="_blank">Ver informe completo en otra pestaña</a></p>
-</section>
+    <div class="section">
+      <div class="section-title">Mis trabajos</div>
+      <div class="slider">
+        <div class="case">
+          <div class="card">
+            <p><strong>Plataforma SaaS - Abril 2025</strong></p>
+            <ul>
+              <li>Ejecución remota de código mediante <code>eval()</code></li>
+              <li><code>phpinfo()</code> expuesto al público</li>
+              <li>Documentos personales indexados en Google</li>
+            </ul>
+            <p>Informe con PoCs, impacto legal y recomendaciones OWASP.</p>
+          </div>
+          <iframe src="casos/informe-plano.pdf"></iframe>
+        </div>
+        <!-- casoss -->
+      </div>
+    </div>
 
-  <footer>
-    <p>© 2025 8D2-SEC | Contacto: <a href="mailto:8d2secops@gmail.com">8d2secops@gmail.com</a></p>
-  </footer>
+    <div class="section contact">
+      <div class="section-title">Contacto</div>
+      <p> <a href="mailto:dylan@8d2sec.pro">dylan@8d2sec.pro</a></p>
+      <p> <a href="mailto:8d2opsec@gmail.com">8d2opsec@gmail.com</a></p>
+    </div>
+  </div>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 </body>
 </html>
