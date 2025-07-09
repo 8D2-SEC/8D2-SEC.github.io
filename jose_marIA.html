@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Consejero Emocional con Gemini</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f0f4f8; }
+    #chat { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: scroll; background: white; }
+    .msg { margin: 10px 0; }
+    .user { font-weight: bold; color: blue; }
+    .bot { font-weight: bold; color: green; }
+    input, button { padding: 10px; font-size: 16px; }
+    #formulario { margin-top: 10px; display: flex; gap: 10px; }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Consejero Emocional</h1>
+  <div id="chat"></div>
+
+  <div id="formulario">
+    <input type="text" id="entrada" placeholder="Cuéntame cómo te sientes..." />
+    <button onclick="enviarMensaje()">Enviar</button>
+  </div>
+
+  <script>
+    const API_KEY = 'AIzaSyD59Kw6GzBFlCEHTjksiZAdIQdkaeP8ldo';
+    const chatDiv = document.getElementById('chat');
+    const input = document.getElementById('entrada');
+
+    function agregarMensaje(texto, autor) {
+      const msg = document.createElement('div');
+      msg.className = 'msg';
+      msg.innerHTML = <span class="${autor}">${autor === 'user' ? 'Tú' : 'Consejero'}:</span> ${texto};
+      chatDiv.appendChild(msg);
+      chatDiv.scrollTop = chatDiv.scrollHeight;
+    }
+
+    async function enviarMensaje() {
+      const mensaje = input.value.trim();
+      if (!mensaje) return;
+
+      agregarMensaje(mensaje, 'user');
+      input.value = '';
+
+      const respuesta = await fetch(https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [
+            {
+              parts: [
+                { text: Tomas el papel de un psicólogo profesional que da técnicas para poder ayudar al usuario se breve y no uses caracteres especiales. ${mensaje} }
+              ]
+            }
+          ]
+        })
+      });
+
+      const data = await respuesta.json();
+      const textoRespuesta = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'Lo siento, no pude responder en este momento.';
+      agregarMensaje(textoRespuesta, 'bot');
+    }
+  </script>
+
+</body>
+</html>
